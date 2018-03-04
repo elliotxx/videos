@@ -43,7 +43,11 @@ def main():
             continue
 
         # 对文件进行重命名
-        os.rename(filename,new_filename) #对文件进行重命名
+        try:
+            os.rename(filename,new_filename) #对文件进行重命名
+        except Exception,e:
+            print 'File %s rename failed! The file may already exist.'%filename
+            print str(e)
 
 if __name__ == '__main__':
     main()
